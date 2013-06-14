@@ -20,8 +20,9 @@
 
 (in-package "ACL2")
 (include-book "list-defuns")
-(include-book "tools/bstar" :dir :system)
 (local (include-book "rev"))
+(local (include-book "revappend"))
+(local (include-book "append"))
 (local (include-book "len"))
 (local (include-book "take"))
 (local (include-book "arithmetic/top" :dir :system))
@@ -75,7 +76,7 @@
              (nth (- (len x) (+ 1 (nfix n))) x)
            nil)))
 
-(defthm nth-of-reverse 
+(defthm nth-of-reverse
   (equal (nth (nfix n) (reverse x))
          (if (< (nfix n) (len x))
              (nth (- (len x) (+ 1 (nfix n))) x)

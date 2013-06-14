@@ -22,6 +22,7 @@
 (include-book "xdoc/top" :dir :system)
 (include-book "list-defuns")
 (local (include-book "duplicity"))
+(local (include-book "append"))
 (local (include-book "sets"))
 
 (defsection std/lists/remove

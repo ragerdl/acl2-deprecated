@@ -27,7 +27,6 @@
 ; theory alone.
 
 (include-book "append")
-(include-book "coerce")
 (include-book "duplicity")
 (include-book "equiv")
 (include-book "final-cdr")
@@ -36,7 +35,6 @@
 (include-book "last")
 (include-book "len")
 (include-book "list-fix")
-(include-book "make-character-list")
 (include-book "mfc-utils")
 (include-book "no-duplicatesp")
 (include-book "nth")
