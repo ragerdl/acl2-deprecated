@@ -1,0 +1,9 @@
+INCA_libs/
+*.vcd
+*.ok
+impl.v
+*.log
+simv
+simv.daidir
+csrc/
+*.key
