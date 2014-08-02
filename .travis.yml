@@ -1,0 +1,35 @@
+language: lisp
+
+env:
+  matrix:
+    - LISP=ccl
+    - LISP=sbcl
+    # - LISP=abcl
+    # - LISP=sbcl32
+    # - LISP=ccl32
+    # - LISP=clisp
+    # - LISP=clisp32
+    # - LISP=cmucl
+    # - LISP=ecl
+
+matrix:
+    - acl2-config=vanilla
+    - acl2-config=h
+    #- acl2-config=p
+
+#matrix:
+#  allow_failures:
+#    - env: LISP=sbcl
+
+install: ./books/build/travis-install.sh
+
+before_script:
+  - echo "(defsystem :dummy-cl-travis-system)" > ~/lisp/dummy-cl-travis-system.asd
+
+#script:
+		
+
+# script:
+#   - cl-launch -i "(ql:quickload :cl-travis-test) (rtest:do-tests) (unless (null (rtest:pending-tests)) (uiop:quit 1))"
+#   - cl-launch -i "(ql:quickload :cl-travis-test) (pushnew :force-test-failure *features*) (rtest:do-tests) (unless (null (rtest:pending-tests)) (uiop:quit 1))"; [ $? -eq 1 ]
+#   - $LISP --help
