@@ -692,7 +692,7 @@ implementations.")
                     nil)
                    ((stringp val)
                     (let ((n (svn-revision-from-line val)))
-                      (or n (error "Unexpected error in getting svn revision ~
+                      (or 9999 (error "Unexpected error in getting svn revision ~
                                     from string:~%~s~%"
                                    val))
                       (format nil
