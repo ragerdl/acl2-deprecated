@@ -20,6 +20,22 @@ echo "Using ACL2_HONS = $ACL2_HONS"
 echo "Using ACL2_PAR  = $ACL2_PAR"
 echo "Using NONSTD    = $NONSTD"
 
+ACL2_SUFFIX=""
+if [ "$ACL2_HONS" != "" ]; then
+	ACL2_SUFFIX=$(ACL2_SUFFIX)h
+fi
+
+if [ "$ACL2_PAR" != "" ]; then
+    ACL2_SUFFIX=$(ACL2_SUFFIX)p
+fi
+
+if [ "$NONSTD" != "" ]; then
+    ACL2_SUFFIX=$(ACL2_SUFFIX)r
+fi
+
+echo "Using ACL2_SUFFIX = $ACL2_SUFFIX"
+
+
 #echo "Making ACL2(h)"
 # need to use single-quote to prevent interpolation of the double
 # quotes in the calling shell.  If your startjob is just a wrapper for
@@ -27,21 +43,6 @@ echo "Using NONSTD    = $NONSTD"
 make LISP=$LISP &> make.log #\
 #  --name "J_CCL_ACL2H" \
 #  --limits "pmem=4gb,nodes=1:ppn=1,walltime=10:00"
-
-ACL2_SUFFIX=""
-if [ "$ACL2_HONS" -ne "" ]; then
-	ACL2_SUFFIX=$(ACL2_SUFFIX)h
-fi
-
-if [ "$ACL2_PAR" -ne "" ]; then
-    ACL2_SUFFIX=$(ACL2_SUFFIX)p
-fi
-
-if [ "$NONSTD" -ne "" ]; then
-    ACL2_SUFFIX=$(ACL2_SUFFIX)r
-fi
-
-echo "Using ACL2_SUFFIX = $ACL2_SUFFIX"
 
 echo "Building the books."
 cd books
