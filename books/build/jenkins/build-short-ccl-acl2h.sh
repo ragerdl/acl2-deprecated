@@ -16,18 +16,40 @@ ACL2DIR=`pwd`
 LISP=`which ccl`
 echo "Using LISP = $LISP"
 #echo "Using STARTJOB = `which startjob`"
+echo "Using ACL2_HONS = $ACL2_HONS"
+echo "Using ACL2_PAR  = $ACL2_PAR"
+echo "Using NONSTD    = $NONSTD"
+
+echo "Using BUILD_SUFFIX = $BUILD_SUFFIX"
 
 echo "Making ACL2(h)"
 # need to use single-quote to prevent interpolation of the double
 # quotes in the calling shell.  If your startjob is just a wrapper for
 # bash, you'll want to use $* to pass in the arguments to startjob
-make ACL2_HONS=t LISP=$LISP &> make.log #\
+make LISP=$LISP &> make.log #\
 #  --name "J_CCL_ACL2H" \
 #  --limits "pmem=4gb,nodes=1:ppn=1,walltime=10:00"
 
+ACL2_SUFFIX :=
+ifdef ACL2_HONS
+	ACL2_SUFFIX := $(ACL2_SUFFIX)h
+endif
+ifdef ACL2_PAR
+	ACL2_SUFFIX := $(ACL2_SUFFIX)p
+endif
+ifdef ACL2_WAG
+	ACL2_SUFFIX := $(ACL2_SUFFIX)w
+endif
+ifdef ACL2_DEVEL
+	ACL2_SUFFIX := $(ACL2_SUFFIX)d
+endif
+ifdef NONSTD
+	ACL2_SUFFIX := $(ACL2_SUFFIX)r
+endif
+
 echo "Building the books."
 cd books
-make arithmetic-2 ACL2=$WORKSPACE/saved_acl2h -j1 $MAKEOPTS USE_QUICKLISP=1
+make arithmetic-2 ACL2=$WORKSPACE/saved_acl2$ACL2_SUFFIX -j1 $MAKEOPTS USE_QUICKLISP=1
 
 #cd acl2-devel/books
 #make ACL2=$ACL2DIR/acl2-devel/saved_acl2h all $MAKEOPTS USE_QUICKLISP=1
