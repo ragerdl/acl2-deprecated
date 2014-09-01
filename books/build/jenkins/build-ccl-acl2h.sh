@@ -27,7 +27,7 @@ make ACL2_HONS=t LISP=$LISP &> make.log #\
 
 echo "Building the books."
 cd books
-make ACL2=$WORKSPACE/saved_acl2h std -j2 $MAKEOPTS USE_QUICKLISP=1
+make ACL2=$WORKSPACE/saved_acl2h std -j1 $MAKEOPTS USE_QUICKLISP=1
 
 #cd acl2-devel/books
 #make ACL2=$ACL2DIR/acl2-devel/saved_acl2h all $MAKEOPTS USE_QUICKLISP=1
