@@ -17,7 +17,7 @@ echo "Using LISP = $LISP"
 echo "Using STARTJOB = `which startjob`"
 
 echo "Making ACL2(h)"
-startjob -c "make acl2h LISP=$LISP &> make.log" \
+startjob -c "make ACL2_HONS=t LISP=$LISP &> make.log" \
   --name "J_CCL_ACL2H" \
   --limits "pmem=4gb,nodes=1:ppn=1,walltime=10:00"
 
