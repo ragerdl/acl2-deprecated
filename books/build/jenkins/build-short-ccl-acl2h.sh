@@ -20,8 +20,6 @@ echo "Using ACL2_HONS = $ACL2_HONS"
 echo "Using ACL2_PAR  = $ACL2_PAR"
 echo "Using NONSTD    = $NONSTD"
 
-echo "Using BUILD_SUFFIX = $BUILD_SUFFIX"
-
 #echo "Making ACL2(h)"
 # need to use single-quote to prevent interpolation of the double
 # quotes in the calling shell.  If your startjob is just a wrapper for
