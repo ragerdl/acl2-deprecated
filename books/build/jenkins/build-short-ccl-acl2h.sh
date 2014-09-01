@@ -29,15 +29,15 @@ make LISP=$LISP &> make.log #\
 #  --limits "pmem=4gb,nodes=1:ppn=1,walltime=10:00"
 
 ACL2_SUFFIX=""
-if [ $ACL2_HONS -ne "" ]; then
+if [ "$ACL2_HONS" -ne "" ]; then
 	ACL2_SUFFIX=$(ACL2_SUFFIX)h
 fi
 
-if [ $ACL2_PAR -ne "" ]; then
+if [ "$ACL2_PAR" -ne "" ]; then
     ACL2_SUFFIX=$(ACL2_SUFFIX)p
 fi
 
-if [ $NONSTD -ne "" ]; then
+if [ "$NONSTD" -ne "" ]; then
     ACL2_SUFFIX=$(ACL2_SUFFIX)r
 fi
 
