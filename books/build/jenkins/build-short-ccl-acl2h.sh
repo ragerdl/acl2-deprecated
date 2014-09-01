@@ -41,6 +41,8 @@ if [ "$NONSTD" -ne "" ]; then
     ACL2_SUFFIX=$(ACL2_SUFFIX)r
 fi
 
+echo "Using ACL2_SUFFIX = $ACL2_SUFFIX"
+
 echo "Building the books."
 cd books
 make arithmetic-2 ACL2=$WORKSPACE/saved_acl2$ACL2_SUFFIX -j1 $MAKEOPTS USE_QUICKLISP=1
