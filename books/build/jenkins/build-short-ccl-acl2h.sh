@@ -22,15 +22,15 @@ echo "Using NONSTD    = $NONSTD"
 
 ACL2_SUFFIX=""
 if [ "$ACL2_HONS" != "" ]; then
-	ACL2_SUFFIX=$(ACL2_SUFFIX)h
+	ACL2_SUFFIX="$(ACL2_SUFFIX)h"
 fi
 
 if [ "$ACL2_PAR" != "" ]; then
-    ACL2_SUFFIX=$(ACL2_SUFFIX)p
+    ACL2_SUFFIX="$(ACL2_SUFFIX)p"
 fi
 
 if [ "$NONSTD" != "" ]; then
-    ACL2_SUFFIX=$(ACL2_SUFFIX)r
+    ACL2_SUFFIX="$(ACL2_SUFFIX)r"
 fi
 
 echo "Using ACL2_SUFFIX = $ACL2_SUFFIX"
