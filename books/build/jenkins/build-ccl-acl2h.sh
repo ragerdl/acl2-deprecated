@@ -11,10 +11,11 @@ echo " -- PATH is $PATH"
 source $JENKINS_HOME/env.sh
 
 ACL2DIR=`pwd`
+alias startjob='bash'
 
 LISP=`which ccl`
 echo "Using LISP = $LISP"
-echo "Using STARTJOB = `which startjob`"
+#echo "Using STARTJOB = `which startjob`"
 
 echo "Making ACL2(h)"
 # need to use single-quote to prevent interpolation of the double
