@@ -11,7 +11,7 @@ echo " -- PATH is $PATH"
 source $JENKINS_HOME/env.sh
 
 ACL2DIR=`pwd`
-alias startjob='bash'
+#alias startjob='bash'
 
 LISP=`which ccl`
 echo "Using LISP = $LISP"
@@ -19,7 +19,8 @@ echo "Using LISP = $LISP"
 
 echo "Making ACL2(h)"
 # need to use single-quote to prevent interpolation of the double
-# quotes in the calling shell.
+# quotes in the calling shell.  If your startjob is just a wrapper for
+# bash, you'll want to use $* to pass in the arguments to startjob
 startjob -c 'make ACL2_HONS=t LISP=$LISP &> make.log' #\
 #  --name "J_CCL_ACL2H" \
 #  --limits "pmem=4gb,nodes=1:ppn=1,walltime=10:00"
